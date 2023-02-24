@@ -430,6 +430,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 14
   horizontalBoundary: 22
+  hayBalePrefab: {fileID: 6548284860100851328, guid: 644fdf9d7ca8426468065562326cbb43,
+    type: 3}
+  haySpawnpoint: {fileID: 1591070682}
+  shootInterval: 0.8
 --- !u!4 &1050572059 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1524613847715755804, guid: ff9c52423c3a7be49af987edf422bcff,
@@ -626,6 +630,12 @@ LightingSettings:
   m_PVRFilteringAtrousPositionSigmaIndirect: 2
   m_PVRFilteringAtrousPositionSigmaAO: 1
   m_PVRTiledBaking: 0
+--- !u!4 &1591070682 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1855226494, guid: c91d458c12526534eb19d65378204353,
+    type: 3}
+  m_PrefabInstance: {fileID: 5233456974663517127}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1524613846732587527
 PrefabInstance:
   m_ObjectHideFlags: 0
