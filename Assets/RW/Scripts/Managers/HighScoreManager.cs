@@ -8,14 +8,15 @@ using UnityEngine.UI;
 
 public class HighScoreManager : MonoBehaviour
 {
-       public Text highScoreText; 
-    public static HighScoreManager Instance;
+    public static float highScoreN = 0;
+    public Text highScoreText; 
 
     void Start()
     {
-        Instance = this;
-        this.UpdateHighScoreText();
+        UpdateHighScoreText();
     }
+   
+
 
     public void UpdateHighScoreText()
     {
@@ -23,9 +24,9 @@ public class HighScoreManager : MonoBehaviour
 
     }
     //Test if the current score is higher than the saved Highscore, .
-    public static void TestHighScore(int TestScore)
+    public static void TestHighScore(float TestScore)
     {
-        int CurrentHigh = ReadHighScore();
+        float CurrentHigh = ReadHighScore();
         if (TestScore > CurrentHigh)
         {
             UpdateHighScore(TestScore);
@@ -34,30 +35,32 @@ public class HighScoreManager : MonoBehaviour
     }
 
     //Updates the saved highscore with the new score to a file.
-    private static void UpdateHighScore(int newScore)
+    private static void UpdateHighScore(float newScore)
     {
-        StreamWriter sw = new StreamWriter(@"highscore.txt");
-        sw.Write(newScore.ToString());
-        sw.Close();
+        // StreamWriter sw = new StreamWriter(@"highscore.txt");
+        // sw.Write(newScore.ToString());
+        // sw.Close();
+        highScoreN = newScore;
     }
 
     //Reads the highscore from a file and returns as an integer.
-    public static int ReadHighScore()
+    public static float ReadHighScore()
     {
-        StreamReader sr = new StreamReader(@"highscore.txt");
-        string highScore = sr.ReadLine();
-        if (sr.ReadLine() == "")
-        {
-            sr.Close();
-            return 0;
-        }
-        else
-        {
+        // StreamReader sr = new StreamReader(@"highscore.txt");
+        // string highScore = sr.ReadLine();
+        // if (sr.ReadLine() == "")
+        // {
+        //     sr.Close();
+        //     return 0;
+        // }
+        // else
+        // {
            
-            sr.Close();
-            return Convert.ToInt32(highScore);
+        //     sr.Close();
+        //     return Convert.ToInt32(highScore);
             
-        }
+        // }
+        return highScoreN;
         
     }
 

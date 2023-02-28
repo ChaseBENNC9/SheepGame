@@ -5,6 +5,7 @@ using UnityEngine;
 public class Sheep : MonoBehaviour
 {
     public float runSpeed;
+    private float maxSpeed = 25;
     public float gotHayDestroyDelay;
     private bool hitByHay;
     private bool dropped;
@@ -25,6 +26,13 @@ public class Sheep : MonoBehaviour
     void Update() 
     {
         transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
+
+        if(runSpeed < maxSpeed)
+        {
+            runSpeed += (0.75f * Time.deltaTime);
+        }
+        
+
     }
 
     private void HitByHay()

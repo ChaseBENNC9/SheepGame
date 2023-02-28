@@ -29,7 +29,6 @@ public class GameStateManager : MonoBehaviour
         {
             SceneManager.LoadScene("Title");
             HighScoreManager.TestHighScore(sheepSaved);
-            HighScoreManager.Instance.UpdateHighScoreText();
         }
     }
     public void SavedSheep()
@@ -44,8 +43,7 @@ public class GameStateManager : MonoBehaviour
         sheepSpawner.canSpawn = false; 
         sheepSpawner.DestroyAllSheep(); 
         UIManager.Instance.ShowGameOverWindow();
-        HighScoreManager.TestHighScore(sheepSaved);
-        HighScoreManager.Instance.UpdateHighScoreText();
+
         
     }
 
