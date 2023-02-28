@@ -22,7 +22,7 @@ public class Sheep : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void Update() 
     {
         transform.Translate(Vector3.forward * runSpeed * Time.deltaTime);
     }
@@ -39,6 +39,8 @@ public class Sheep : MonoBehaviour
         TweenScale tweenScale = gameObject.AddComponent<TweenScale>();
         tweenScale.targetScale = 0; 
         tweenScale.timeToReachTarget = gotHayDestroyDelay;
+        SoundManager.instance.PlaySheepHitClip();
+        GameStateManager.instance.SavedSheep();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,6 +62,8 @@ public class Sheep : MonoBehaviour
         myRigidbody.isKinematic = false;
         myCollider.isTrigger = false;
         Destroy(gameObject,dropDestroyDelay);
+        SoundManager.instance.PlaySheepDroppedClip();
+        GameStateManager.instance.DroppedSheep();
     }
 
     public void SetSpawner(SheepSpawner spawner)
