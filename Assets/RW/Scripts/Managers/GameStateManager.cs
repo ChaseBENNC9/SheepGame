@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameStateManager : MonoBehaviour
 {
 
-    public static GameStateManager instance; 
+    public static GameStateManager Instance; 
 
     [HideInInspector]
     public int sheepSaved; 
@@ -18,7 +18,7 @@ public class GameStateManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        instance = this;
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -32,17 +32,21 @@ public class GameStateManager : MonoBehaviour
     public void SavedSheep()
     {
         sheepSaved++;
+        UIManager.Instance.UpdateSheepSaved();
     }
 
     private void GameOver()
     {
+        
         sheepSpawner.canSpawn = false; 
         sheepSpawner.DestroyAllSheep(); 
+        UIManager.Instance.ShowGameOverWindow();
     }
 
     public void DroppedSheep()
     {
         sheepDropped++; 
+        UIManager.Instance.UpdateSheepDropped();
 
         if (sheepDropped == sheepDroppedBeforeGameOver) 
         {

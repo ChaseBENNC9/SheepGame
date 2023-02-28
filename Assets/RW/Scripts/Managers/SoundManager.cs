@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    public static SoundManager instance;
+    public static SoundManager Instance;
 
     public AudioClip shootClip;
     public AudioClip sheepHitClip;
@@ -14,7 +14,7 @@ public class SoundManager : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        instance = this;
+        Instance = this;
         cameraPosition = Camera.main.transform.position;
     }
 
