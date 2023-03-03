@@ -18,19 +18,16 @@ public class HighScoreManager : MonoBehaviour
         UpdateHighScoreText();
     }
    
-    void Update()
-    {
-        UpdateHighScoreText();
-    }
 
 
+    //Updates the Text on the UI for the HighScore
     public void UpdateHighScoreText()
     {
        highScoreText.text = ReadHighScore().ToString();
 
     }
     //Test if the current score is higher than the saved Highscore, .
-    public static void TestHighScore(float TestScore)
+    public void TestHighScore(float TestScore)
     {
         float CurrentHigh = ReadHighScore();
         if (TestScore > CurrentHigh)
@@ -41,7 +38,7 @@ public class HighScoreManager : MonoBehaviour
     }
 
     //Updates the saved highscore with the new score to a file.
-    private static void UpdateHighScore(float newScore)
+    private void UpdateHighScore(float newScore)
     {
         // StreamWriter sw = new StreamWriter(@"highscore.txt");
         // sw.Write(newScore.ToString());
@@ -50,7 +47,7 @@ public class HighScoreManager : MonoBehaviour
     }
 
     //Reads the highscore from a file and returns as an integer.
-    public static float ReadHighScore()
+    public float ReadHighScore()
     {
         // StreamReader sr = new StreamReader(@"highscore.txt");
         // string highScore = sr.ReadLine();

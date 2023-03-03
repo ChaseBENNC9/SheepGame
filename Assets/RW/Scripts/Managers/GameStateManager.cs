@@ -35,7 +35,7 @@ public class GameStateManager : MonoBehaviour
     {
         sheepSaved++;
         UIManager.Instance.UpdateSheepSaved();
-        HighScoreManager.TestHighScore(sheepSaved);
+        HighScoreManager.Instance.TestHighScore(sheepSaved);
         HighScoreManager.Instance.UpdateHighScoreText();
     }
 
