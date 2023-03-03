@@ -5,7 +5,8 @@ using UnityEngine;
 public class Sheep : MonoBehaviour
 {
     public float runSpeed;
-    private float maxSpeed = 25;
+    public float maxSpeed = 25;
+    public float SpeedIncreaseRate = 0.75f;
     public float gotHayDestroyDelay;
     private bool hitByHay;
     private bool dropped;

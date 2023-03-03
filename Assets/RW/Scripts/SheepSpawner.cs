@@ -11,7 +11,8 @@ public class SheepSpawner : MonoBehaviour
     public List<Transform> sheepSpawnPositions = new List<Transform>(); 
     public float timeBetweenSpawns; 
 
-    private float MinTimeBetweenSpawns = 0.5f;
+    public float SpawnDecreaseRate = 0.1f;
+    public float MinTimeBetweenSpawns = 0.5f;
 
     private List<GameObject> sheepList = new List<GameObject>(); 
     void Start()
@@ -24,7 +25,7 @@ public class SheepSpawner : MonoBehaviour
     {
         if (timeBetweenSpawns > MinTimeBetweenSpawns)
         {
-            timeBetweenSpawns -= (0.1f*Time.deltaTime);
+            timeBetweenSpawns -= (SpawnDecreaseRate*Time.deltaTime);
         }
         
     }
