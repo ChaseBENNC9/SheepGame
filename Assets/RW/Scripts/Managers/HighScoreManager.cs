@@ -8,14 +8,20 @@ using UnityEngine.UI;
 
 public class HighScoreManager : MonoBehaviour
 {
+    public static HighScoreManager Instance;
     public static float highScoreN = 0;
     public Text highScoreText; 
 
-    void Start()
+    void Awake()
     {
+        Instance = this;
         UpdateHighScoreText();
     }
    
+    void Update()
+    {
+        UpdateHighScoreText();
+    }
 
 
     public void UpdateHighScoreText()

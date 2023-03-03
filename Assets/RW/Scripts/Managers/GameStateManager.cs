@@ -25,16 +25,18 @@ public class GameStateManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("Title");
-            HighScoreManager.TestHighScore(sheepSaved);
         }
     }
     public void SavedSheep()
     {
         sheepSaved++;
         UIManager.Instance.UpdateSheepSaved();
+        HighScoreManager.TestHighScore(sheepSaved);
+        HighScoreManager.Instance.UpdateHighScoreText();
     }
 
     private void GameOver()
