@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+//The Purpose of this script is to keep track of the states of different objects within the game. It manages how many sheep are saved or dropped and when a game over is caused. 
 public class GameStateManager : MonoBehaviour
 {
 
@@ -16,7 +17,6 @@ public class GameStateManager : MonoBehaviour
     public int sheepDroppedBeforeGameOver; 
     public SheepSpawner sheepSpawner; 
     
-    // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
@@ -31,15 +31,15 @@ public class GameStateManager : MonoBehaviour
             SceneManager.LoadScene("Title");
         }
     }
-    public void SavedSheep()
+    public void SavedSheep() //When a sheep is saved, the Score is updated and it is tested against the stored highscore from the highscoreManager script.
     {
         sheepSaved++;
         UIManager.Instance.UpdateSheepSaved();
         HighScoreManager.Instance.TestHighScore(sheepSaved);
-        HighScoreManager.Instance.UpdateHighScoreText();
+        
     }
 
-    private void GameOver()
+    private void GameOver() //When the game is over, a window opens and any sheep left on the screen are destroyed.
     {
         
         sheepSpawner.canSpawn = false; 
@@ -49,7 +49,7 @@ public class GameStateManager : MonoBehaviour
         
     }
 
-    public void DroppedSheep()
+    public void DroppedSheep() //When a Sheep is dropped the sheep Dropped is updated and It is tested to see if it is a gameover
     {
         sheepDropped++; 
         UIManager.Instance.UpdateSheepDropped();

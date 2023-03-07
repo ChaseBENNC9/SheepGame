@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//This script adds the scaling animation for the heart effect
 public class TweenScale : MonoBehaviour
 {
     public float targetScale;
@@ -18,7 +19,7 @@ public class TweenScale : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (percentScaled < 1f) 
+        if (percentScaled < 1f) //the object is scaled until it reaches its target scale in a specified time.
         {
             percentScaled += Time.deltaTime / timeToReachTarget; 
             float scale = Mathf.Lerp(startScale, targetScale, percentScaled); 

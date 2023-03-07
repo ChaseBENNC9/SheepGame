@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//This script manages the sound effects of the game
 public class SoundManager : MonoBehaviour
 {
     public static SoundManager Instance;
@@ -11,7 +11,6 @@ public class SoundManager : MonoBehaviour
     public AudioClip sheepDroppedClip;
 
     private Vector3 cameraPosition;
-    // Start is called before the first frame update
     void Awake()
     {
         Instance = this;
@@ -23,12 +22,13 @@ public class SoundManager : MonoBehaviour
     {
         
     }
-
+   
     private void PlaySound(AudioClip clip)
     {
         AudioSource.PlayClipAtPoint(clip, cameraPosition);
     }
 
+    //When each of these methods are called they play the appropriate sound
     public void PlayShootClip()
     {
         PlaySound(shootClip);

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System;
+//This script allows the user to change the hay machine colour by clicking on it at the menu.
 public class HayMachineSwitcher : MonoBehaviour, IPointerClickHandler
 {
     public GameObject blueHayMachine;
@@ -11,15 +12,15 @@ public class HayMachineSwitcher : MonoBehaviour, IPointerClickHandler
 
     private int selectedIndex;
 
-    public void OnPointerClick(PointerEventData eventData) 
+    public void OnPointerClick(PointerEventData eventData)  //When the menu hay machine is clicked. The colour inside of gamesettings is changed.
     {
         selectedIndex++; 
         selectedIndex %= Enum.GetValues(typeof(HayMachineColor)).Length; 
 
         GameSettings.hayMachineColor = (HayMachineColor)selectedIndex; 
 
-
-        switch (GameSettings.hayMachineColor)
+        //Depending on which colour is selected , the other two are hidden.
+        switch (GameSettings.hayMachineColor) 
         {
             case HayMachineColor.Blue:
                 blueHayMachine.SetActive(true);

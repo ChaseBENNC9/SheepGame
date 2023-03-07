@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//The script manages the Hay machine and acts like a player controller
 public class HayMachine : MonoBehaviour
 {
     public float movementSpeed;
@@ -22,7 +22,7 @@ public class HayMachine : MonoBehaviour
     {
         LoadModel();
     }
-    private void LoadModel()
+    private void LoadModel() //Accesses which colour was selected in the menu and loads the correct model.
     {
         Destroy(modelParent.GetChild(0).gameObject);
         switch (GameSettings.hayMachineColor)
@@ -47,7 +47,7 @@ public class HayMachine : MonoBehaviour
         UpdateMovement();
         UpdateShooting();
     }
-    private void UpdateMovement()
+    private void UpdateMovement() //Tests if the player is within the movement Tracks and moves in the direction of the key press.
     {
         float horizontalInput = Input.GetAxisRaw("Horizontal");
         
@@ -62,7 +62,7 @@ public class HayMachine : MonoBehaviour
     }
 
 
-    private void UpdateShooting()
+    private void UpdateShooting() //Manages the shooting and the cooldown before the player can shoot again
     {
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0 && Input.GetKey(KeyCode.Space))
@@ -72,7 +72,7 @@ public class HayMachine : MonoBehaviour
         }
     }
 
-    private void ShootHay()
+    private void ShootHay() //Creates a new hay bale and plays the appropriate sound.
     {
         Instantiate(hayBalePrefab, haySpawnpoint.position, Quaternion.identity);
         SoundManager.Instance.PlayShootClip();

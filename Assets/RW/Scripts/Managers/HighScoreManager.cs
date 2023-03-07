@@ -5,11 +5,12 @@ using System.IO;
 using System;
 using UnityEngine.UI;
 
-
+//The Purpose of this Script is to Manage a Highscore that will update when the user scores higher. The Score is displayed on a text box in the game scene and tite scene.
+//The Highscore is not saved to a file and will reset when the game is closed.
 public class HighScoreManager : MonoBehaviour
 {
     public static HighScoreManager Instance;
-    public static float highScoreN = 0;
+    public static float highScore = 0;
     public Text highScoreText; 
 
     void Awake()
@@ -26,7 +27,7 @@ public class HighScoreManager : MonoBehaviour
        highScoreText.text = ReadHighScore().ToString();
 
     }
-    //Test if the current score is higher than the saved Highscore, .
+    //Test if the current score is higher than the saved Highscore and if it is, the highscore is updated.
     public void TestHighScore(float TestScore)
     {
         float CurrentHigh = ReadHighScore();
@@ -37,33 +38,19 @@ public class HighScoreManager : MonoBehaviour
         
     }
 
-    //Updates the saved highscore with the new score to a file.
+    //Updates the saved highscore with the new score. And updates the Text on the UI.
     private void UpdateHighScore(float newScore)
     {
-        // StreamWriter sw = new StreamWriter(@"highscore.txt");
-        // sw.Write(newScore.ToString());
-        // sw.Close();
-        highScoreN = newScore;
+
+        highScore = newScore;
+        UpdateHighScoreText();
     }
 
     //Reads the highscore from a file and returns as an integer.
     public float ReadHighScore()
     {
-        // StreamReader sr = new StreamReader(@"highscore.txt");
-        // string highScore = sr.ReadLine();
-        // if (sr.ReadLine() == "")
-        // {
-        //     sr.Close();
-        //     return 0;
-        // }
-        // else
-        // {
-           
-        //     sr.Close();
-        //     return Convert.ToInt32(highScore);
-            
-        // }
-        return highScoreN;
+
+        return highScore;
         
     }
 

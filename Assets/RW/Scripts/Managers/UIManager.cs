@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+//This script manages the User interface items such as the Game over screen and the Text for the sheep rescued and dropped.
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance; 
@@ -17,7 +18,7 @@ public class UIManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void UpdateSheepSaved() 
+    public void UpdateSheepSaved() //The Methods update the UI text when the values are changed
     {
         sheepSavedText.text = GameStateManager.Instance.sheepSaved.ToString();
     }
@@ -28,7 +29,7 @@ public class UIManager : MonoBehaviour
     }
 
 
-    public void ShowGameOverWindow()
+    public void ShowGameOverWindow() //Display the gam over window
     {
         gameOverWindow.SetActive(true);
     }

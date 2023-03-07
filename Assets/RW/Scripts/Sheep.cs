@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//This script controls the sheep and its functionality
 public class Sheep : MonoBehaviour
 {
     public float runSpeed;
@@ -36,7 +36,7 @@ public class Sheep : MonoBehaviour
 
     }
 
-    private void HitByHay()
+    private void HitByHay() //When the sheep is hit by a hay bale it is removed from the list of active sheep so it can't be hit again. Plays a small animation of a heart and shrinks the sheep.
     {
 
         sheepSpawner.RemoveSheepFromList(gameObject);
@@ -52,7 +52,7 @@ public class Sheep : MonoBehaviour
         GameStateManager.Instance.SavedSheep();
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerEnter(Collider other) //Tests if the collider it enters matches a hay bale or the drop collider at the end of the island
     {
         if (other.CompareTag("Hay") && !hitByHay)
         {
@@ -64,7 +64,7 @@ public class Sheep : MonoBehaviour
             Drop();
         }
     }
-    private void Drop()
+    private void Drop() //when the sheep reaches the end, gravity is added to it so it falls and it is destroyed after a small delay
     {
         sheepSpawner.RemoveSheepFromList(gameObject);
         dropped = true;
@@ -75,7 +75,7 @@ public class Sheep : MonoBehaviour
         GameStateManager.Instance.DroppedSheep();
     }
 
-    public void SetSpawner(SheepSpawner spawner)
+    public void SetSpawner(SheepSpawner spawner) //Sets the spawner where sheep will instantiate to.
     {
         sheepSpawner = spawner;
     }
