@@ -642,7 +642,7 @@ MonoBehaviour:
   - {fileID: 1206014445}
   - {fileID: 1147980900}
   timeBetweenSpawns: 2
-  SpawnDecreaseRate: 0.05
+  SpawnTimeDecreaseRate: 0.05
   MinTimeBetweenSpawns: 0.5
 --- !u!4 &1105127785
 Transform:
