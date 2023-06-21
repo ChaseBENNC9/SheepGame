@@ -14,31 +14,31 @@ public class HayMachineSwitcher : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)  //When the menu hay machine is clicked. The colour inside of gamesettings is changed.
     {
-        selectedIndex++; 
-        selectedIndex %= Enum.GetValues(typeof(HayMachineColor)).Length; 
+        selectedIndex++;
+        selectedIndex %= Enum.GetValues(typeof(HayMachineColor)).Length;
 
-        GameSettings.hayMachineColor = (HayMachineColor)selectedIndex; 
+        GameSettings.hayMachineColor = (HayMachineColor)selectedIndex;
 
         //Depending on which colour is selected , the other two are hidden.
-        switch (GameSettings.hayMachineColor) 
+        switch (GameSettings.hayMachineColor)
         {
             case HayMachineColor.Blue:
                 blueHayMachine.SetActive(true);
                 yellowHayMachine.SetActive(false);
                 redHayMachine.SetActive(false);
-            break;
+                break;
 
             case HayMachineColor.Yellow:
                 blueHayMachine.SetActive(false);
                 yellowHayMachine.SetActive(true);
                 redHayMachine.SetActive(false);
-            break;
+                break;
 
             case HayMachineColor.Red:
                 blueHayMachine.SetActive(false);
                 yellowHayMachine.SetActive(false);
                 redHayMachine.SetActive(true);
-            break;
+                break;
         }
-    }    
+    }
 }

@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 public class QuitButton : MonoBehaviour, IPointerClickHandler
 {
     // Start is called before the first frame update
-    public void OnPointerClick(PointerEventData eventData) 
+    public void OnPointerClick(PointerEventData eventData)
     {
         Application.Quit();
     }

@@ -8,8 +8,8 @@ using UnityEngine.SceneManagement;
 public class StartButton : MonoBehaviour, IPointerClickHandler
 {
     // Start is called before the first frame update
-    public void OnPointerClick(PointerEventData eventData) 
+    public void OnPointerClick(PointerEventData eventData)
     {
-        SceneManager.LoadScene("Game"); 
+        SceneManager.LoadScene("Game");
     }
 }
