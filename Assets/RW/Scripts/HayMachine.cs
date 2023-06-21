@@ -49,9 +49,9 @@ public class HayMachine : MonoBehaviour
     }
     private void UpdateMovement() //Tests if the player is within the movement Tracks and moves in the direction of the key press.
     {
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float horizontalInput = Input.GetAxisRaw("Horizontal"); //When the Horizontal input is pressed
         
-        if (horizontalInput < 0 && transform.position.x > -horizontalBoundary)
+        if (horizontalInput < 0 && transform.position.x > -horizontalBoundary) //Moves the player when it is within the set boundary
         {
             transform.Translate(transform.right * -movementSpeed * Time.deltaTime);
         }
@@ -67,7 +67,7 @@ public class HayMachine : MonoBehaviour
         shootTimer -= Time.deltaTime;
         if (shootTimer <= 0 && Input.GetKey(KeyCode.Space))
         {
-            shootTimer = shootInterval;
+            shootTimer = shootInterval; //sets the timer back to the interval for a cooldown
             ShootHay();
         }
     }
